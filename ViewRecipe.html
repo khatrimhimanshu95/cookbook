@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html> 
+<html lang="en" ng-app="cookbook">
+
+<!-- Mirrored from agileui.com/demo/monarch/demo/admin-template/ViewRecipe.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Jul 2017 09:56:52 GMT -->
+<head>
+
+    <style>
+        /* Loading Spinner */
+        .spinner{margin:0;width:70px;height:18px;margin:-35px 0 0 -9px;position:absolute;top:50%;left:50%;text-align:center}.spinner > div{width:18px;height:18px;background-color:#333;border-radius:100%;display:inline-block;-webkit-animation:bouncedelay 1.4s infinite ease-in-out;animation:bouncedelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode:both;animation-fill-mode:both}.spinner .bounce1{-webkit-animation-delay:-.32s;animation-delay:-.32s}.spinner .bounce2{-webkit-animation-delay:-.16s;animation-delay:-.16s}@-webkit-keyframes bouncedelay{0%,80%,100%{-webkit-transform:scale(0.0)}40%{-webkit-transform:scale(1.0)}}@keyframes bouncedelay{0%,80%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}40%{transform:scale(1.0);-webkit-transform:scale(1.0)}}
+    </style>
+
+
+    <meta charset="UTF-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<title> View  </title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href="dist/CookBook.min.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+
+    <body>
+    <div id="sb-site">
+ 
+
+    <div id="loading">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <div id="page-wrapper">
+        <div id="page-header" class="bg-primary">
+            <div id="mobile-navigation">
+                <button id="nav-toggle" class="collapsed" data-toggle="collapse" data-target="#page-sidebar"><span></span></button>
+                <a href="ListRecipe.html" class="logo-content-small" title="MonarchUI"></a>
+            </div>
+            <div id="header-logo" class="logo-bg">
+                <a href="ListRecipe.html" class="logo-content-big" title="MonarchUI">
+                    Cookbook
+                    <span>Admin Pannel</span>
+                </a>
+                <a href="ListRecipe.html" class="logo-content-big" title="MonarchUI">
+                    Cookbook
+                    <span>Admin Pannel</span>
+                </a>
+                <a id="close-sidebar" href="#" title="Close sidebar">
+                    <i class="glyph-icon icon-angle-left"></i>
+                </a>
+            </div>
+            <div id="header-nav-left">
+
+            </div><!-- #header-nav-left -->
+            <div id="header-nav-right">
+
+
+                <div class="dropdown" id="dashnav-btn">
+                    <a href="#" data-toggle="dropdown" data-placement="bottom" class="popover-button-header tooltip-button" title="Dashboard Quick Menu">
+                        <i class="glyph-icon icon-linecons-cog"></i>
+                    </a>
+
+                </div>
+
+            </div><!-- #header-nav-right -->
+        </div>
+        <div id="page-sidebar">
+            <div class="scroll-sidebar">
+
+                <ul id="sidebar-menu">
+                    <li class="header"><span>Overview</span></li>
+                    <li>
+                        <a href="ListRecipe.html" title="Admin Dashboard">
+                            <i class="glyph-icon icon-linecons-tv"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="no-menu">
+                        <a href="ListRecipe.html" title="Frontend template">
+                            <i class="glyph-icon icon-linecons-beaker"></i>
+                            <span>Recipes</span>
+                           
+                        </a>
+                    </li>
+                    <li class="header"><span>Special Recipes</span></li>
+                    <li>
+                        <a href="ViewRecipe.html" title="Elements">
+                            <i class="glyph-icon icon-linecons-food"></i>
+                            <span>Vegetable Samosas</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="ViewRecipe.html" title="Elements">
+                            <i class="glyph-icon icon-linecons-food"></i>
+                            <span>Banana Ice-Cream</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="ViewRecipe.html" title="Elements">
+                            <i class="glyph-icon icon-linecons-food"></i>
+                            <span>Dijon Pork Chops</span>
+                        </a>
+
+                    </li>
+
+                </ul><!-- #sidebar-menu -->
+
+            </div>
+        </div>
+  
+        <div id="page-content-wrapper">
+            <div id="page-content">
+                
+                    <div class="container">
+                    
+
+
+
+ 
+<div class="content-box pad25A" >
+    <div ng-controller="ViewRecipesController">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="dummy-logo">
+                    <img ng-src="{{recipe.imageUrl}}" class="FoodImg" />
+                </div>
+
+            </div>
+            <div class="col-sm-6  text-left">
+                <h4 class="invoice-title">{{recipe.title}}</h4>
+           {{recipe.description}}
+                <div class="divider"></div>
+                <h3 class="HeadingSm">Rating : </h3>
+                <div class="stars-existing" data-rating="{{recipe.rating}}">
+                    <i class="glyphicon glyphicon-star"></i>
+
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="invoice-client mrg10T">Recipe Ingredients:</h2>
+                <ul>
+
+                    <li ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+                  
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h2 class="invoice-client mrg10T">&nbsp;</h2>
+                <h5>Recipe Instructions:</h5>
+                <ul>
+                    <li ng-repeat="instruction in recipe.instructions">{{instruction}}</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div ng-controller="CommentController">
+        <h3 class="TopSpace"><label>Comments :</label></h3>
+        <hr />
+        <div class="content-box bg-white post-box">
+            <textarea name="" class="textarea-autosize" placeholder="Comment Please" ng-model="txtcomment"></textarea>
+            <div class="button-pane">
+                <a href="#" class="btn btn-md btn-link hover-white" title="">
+                    <i class="glyph-icon icon-volume-down"></i>
+                </a>
+                <a href="#" class="btn btn-md btn-link hover-white" title="">
+                    <i class="glyph-icon icon-video-camera"></i>
+                </a>
+                <a href="#" class="btn btn-md btn-link hover-white" title="">
+                    <i class="glyph-icon icon-microphone"></i>
+                </a>
+                <a href="#" class="btn btn-md btn-link hover-white" title="">
+                    <i class="glyph-icon icon-picture-o"></i>
+                </a>
+
+                <a  class="btn btn-md btn-post float-right btn-success" title="" ng-click='btn_add();'>
+                    <span class="glyphicon glyphicon-send"></span> Send
+                </a>
+
+            </div>
+        </div>
+        <section class="comment-list" style="margin-top:20px;">
+            <!-- First Comment -->
+            <article class="row" ng-repeat="comnt in comment">
+                <div class="col-md-1 col-sm-1">
+                    <figure class="thumbnail">
+                        <img class="img-responsive" ng-src="{{comnt.imageUrl}}" />
+                    </figure>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <div class="panel panel-default arrow left">
+                        <div class="panel-body">
+                            <header class="text-left">
+                                <div class="comment-user"><i class="fa fa-user"></i> {{comnt.username}}</div>
+                                <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                            </header>
+                            <div class="comment-post">
+                                <p>
+                                    {{comnt.comment}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+
+
+        </section>
+    </div>
+
+</div>
+
+                    </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+        <script src="dist/Vendor.min.js"></script>
+        <script src="dist/CookBook.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function () {
+                setTimeout(function () {
+                    $('#loading').fadeOut(400, "linear");
+                }, 300);
+            });
+        </script>
+
+
+</div>
+</body>
+
+<!-- Mirrored from agileui.com/demo/monarch/demo/admin-template/ViewRecipe.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Jul 2017 09:56:52 GMT -->
+</html>

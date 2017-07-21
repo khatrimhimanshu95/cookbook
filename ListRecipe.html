@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="cookbook">
+<head>
+
+    <meta charset="UTF-8">
+    <title> Cookbook </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="dist/CookBook.min.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <div id="sb-site">
+
+        <div id="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <div id="page-wrapper">
+            <div id="page-header" class="bg-primary">
+                <div id="mobile-navigation">
+                    <button id="nav-toggle" class="collapsed" data-toggle="collapse" data-target="#page-sidebar"><span></span></button>
+                    <a href="ListRecipe.html" class="logo-content-small" title="MonarchUI"></a>
+                </div>
+                <div id="header-logo" class="logo-bg">
+                    <a href="ListRecipe.html" class="logo-content-big" title="MonarchUI">
+                        Cookbook
+                 
+                    </a>
+                    <a href="ListRecipe.html" class="logo-content-big" title="MonarchUI">
+                        Cookbook
+                    
+                    </a>
+                    <a id="close-sidebar" href="#" title="Close sidebar">
+                        <i class="glyph-icon icon-angle-left"></i>
+                    </a>
+                </div>
+                <div id="header-nav-left">
+
+                </div><!-- #header-nav-left -->
+                <div id="header-nav-right">
+
+
+                    <div class="dropdown" id="dashnav-btn">
+                        <a href="#" data-toggle="dropdown" data-placement="bottom" class="popover-button-header tooltip-button" title="Dashboard Quick Menu">
+                            <i class="glyph-icon icon-linecons-cog"></i>
+                        </a>
+
+                    </div>
+
+                </div><!-- #header-nav-right -->
+            </div>
+            <div id="page-sidebar">
+                <div class="scroll-sidebar">
+
+                    <ul id="sidebar-menu">
+                        <li class="header"><span>Overview</span></li>
+                        <li>
+                            <a href="ListRecipe.html" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="no-menu">
+                            <a href="ListRecipe.html" title="Frontend template">
+                                <i class="glyph-icon icon-linecons-beaker"></i>
+                                <span>Recipes</span>
+                              
+                            </a>
+                        </li>
+                        <li class="header"><span>Special Recipes</span></li>
+                        <li>
+                            <a href="ViewRecipe.html" title="Elements">
+                                <i class="glyph-icon icon-linecons-food"></i>
+                                <span>Vegetable Samosas</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="ViewRecipe.html" title="Elements">
+                                <i class="glyph-icon icon-linecons-food"></i>
+                                <span>Banana Ice-Cream</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="ViewRecipe.html" title="Elements">
+                                <i class="glyph-icon icon-linecons-food"></i>
+                                <span>Dijon Pork Chops</span>
+                            </a>
+
+                        </li>
+
+                    </ul><!-- #sidebar-menu -->
+
+                </div>
+            </div>
+            <div id="page-content-wrapper" data-ng-controller="ManageRecipesController">
+                <div id="page-content">
+
+                    <div class="container">
+
+                     
+                        <div class="content-box">
+                            <div class="mail-header clearfix row">
+                                <div class="col-md-8">
+                                    <span class="mail-title">Search Recipes</span>
+
+                                </div>
+                                <div class="float-right col-md-4 pad0A">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-model="searchText">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default" tabindex="-1">
+                                                <i class="glyph-icon icon-search"></i>
+                                            </button>
+                                        </div>
+                                        <button class="btn btn-success float-right"  data-toggle="modal" data-target="#ModalAdd" style="margin-right:20px">Add Recipe</button>
+                                    </div>
+
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mailbox-wrapper">
+                            <div class="panel-content pad15A bg-white" >                           
+                                <div class="col-md-12 separatorCustom" ng-repeat="recipe in recipes | filter:searchText">
+                                    <div class="col-md-4">
+                                        <div class="panel-layout">
+                                            <div class="panel-box">
+                                                <div class="panel-content image-box FoodBg_Container FoodBG1 " style="background-image:url('{{recipe.imageUrl}}')">
+                                                    <div class="ribbon">
+                                                        <div class="bg-primary">Recipe</div>
+                                                    </div>
+                                                    <div class="image-content font-white">
+                                                        <div class="meta-box meta-box-bottom">
+
+                                                            <h3 class="meta-heading">
+                                                               {{recipe.title}}
+
+                                                            </h3>
+                                                       
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="radius-bottom-all-4 text-left">
+                                            <div class="col-md-12">
+
+                                                <h3 class="">
+                                                    {{recipe.title}}
+                                                    <div class="btn-group float-right">
+                                                        <a href="#" data-toggle="dropdown" class="btn btn-default btn-small"><span class="glyphicon glyphicon-option-vertical"></span></a>
+                                                        <ul class="dropdown-menu float-left">
+                                                  
+                                                            <li>
+                                                                <a href="" data-toggle="modal" data-target="#myModal">
+                                                                    Edit
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="ViewRecipe.html"> View</a></li>
+                                                            <li><a ng-click="remove(recipe)"> Remove</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </h3>
+
+
+                                                <div class="post-content SpaceTop_bottom">
+                                                    <p>{{recipe.description}}</p>
+                                                </div>
+                                                <h3 class="HeadingSm">Rating : </h3>
+                                                <div class="stars-existing" data-rating="{recipe.rating}}">
+                                                <i class="glyphicon glyphicon-star"></i>
+                                                
+                                                    <i class="glyphicon glyphicon-star"></i>
+                                                    <i class="glyphicon glyphicon-star"></i>
+                                                    <i class="glyphicon glyphicon-star"></i>
+                                                    <i class="glyphicon glyphicon-star-empty"></i>
+                                                </div>
+                                           
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                                <div class="clear"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Edit Recipe</h4>
+                    </div>
+                    <div class="modal-body EditFields">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Title</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="" value="Vegetable Samosas">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="" >Vegetables in a curry sauce wrapped and fried until golden brown</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Ingredients</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="" >2 tablespoons vegetable oil, 4 medium potatoes, peeled and cut into 1/2-inch cubes, 1/2 cup chopped yellow onion, 3/4 cup canned peas and carrots,  drained 1 cup Red Curry Sauce,   Flour for baking sheet,   12 large wonton wrappers</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Instructions</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="" >"In large skillet heat 2 tablespoons oil over medium heat. Add potatoes and onion; cook stirring constantly. About 15 minutes or until soft. Add peas and carrots and curry sauce and cook 4-5 minutes. Cool.", "Lightly flour baking sheet. Cut each wonton wrapper in half on the diagonal to make 2 triangles. Spoon 1-2 tablespoons filling in center of each triangle. Brush edges of wrappers with water; fold in half to form a triangle and press edges together to seal. Transfer to prepared baking sheet.", "In deep-fryer heat oil to 350 degrees F. Fry samosas a few at a time. Turning occasionally for 2-3 minutes or until golden brown. Drain on paper towels. Serve with chutney."</textarea>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+  
+        <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Add Recipe</h4>
+                    </div>
+                    <div class="modal-body EditFields">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Title</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id=""></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Ingredients</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id=""></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Recipe Instructions</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id=""></textarea>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <script src="dist/Vendor.min.js"></script>
+        <script src="dist/CookBook.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function () {
+                setTimeout(function () {
+                    $('#loading').fadeOut(400, "linear");
+                }, 300);
+            });
+        </script>
+     
+    </div>
+</body>
+</html>
